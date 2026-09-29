@@ -1,0 +1,21 @@
+:root { --bg: #ffffff; --ink: #15141f; --ink2: #4d4c60; --line: #e7e6ef; --accent: #5b4bff; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0e0e14; --ink: #f5f5fa; --ink2: #b9b8cc; --line: #2a2936; --accent: #8c80ff; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 16px/1.8 -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+main { max-width: 720px; margin: 0 auto; padding: 48px 16px 72px; }
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+header img { width: 44px; height: 44px; border-radius: 11px; border: 1px solid var(--line); }
+header a { color: var(--ink); text-decoration: none; font-weight: 700; font-size: 18px; }
+h1 { font-size: 26px; line-height: 1.4; margin: 0 0 8px; }
+h2 { font-size: 18px; margin: 32px 0 6px; }
+p, li { color: var(--ink2); }
+.updated { font-size: 14px; }
+a { color: var(--accent); }
+nav { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 15px; }
+nav a { margin-right: 18px; }
