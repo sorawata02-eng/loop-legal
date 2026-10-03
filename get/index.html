@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loop をダウンロード</title>
+<meta name="description" content="Loop（ショート動画で英語）を App Store で入手する。">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#F6F5FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E14" media="(prefers-color-scheme: dark)">
+
+<!-- Safari on iOS shows a native "App Store で見る" banner from this. -->
+<meta name="apple-itunes-app" content="app-id=6817213177">
+<link rel="canonical" href="https://apps.apple.com/jp/app/id6817213177">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta property="og:title" content="Loop — ショート動画で英語">
+<meta property="og:description" content="ネイティブが見ている動画で、英語が身につく。気になる単語は、タップするだけ。">
+<meta property="og:image" content="https://sorawata02-eng.github.io/loop-legal/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="get.css">
+
+<!-- This page exists to be left. Instagram won't take an App Store link in a bio,
+     so the bio points here and here points at the App Store.
+
+     Changing the domain is only half of it: Instagram opens links in its own
+     WebView, and sending that WebView to apps.apple.com can show the App Store's
+     *web page* inside it, with no Get button and no way forward. The escape is a
+     scheme the host app understands (`instagram://extbrowser`), which hands the URL
+     to the real browser; LINE has a documented parameter for the same. See
+     inapp-browser.js for the per-app strategies and the caveat that the Meta ones
+     aren't documented by Meta or Apple.
+
+     Ported from the bridge already shipping for the founder's other apps, with its
+     tests (`node --test docs/web/inapp-browser.test.js` in the app's repo).
+
+     Campaigns: /get/?s=instagram reaches Apple as ct=instagram (App Store Connect →
+     Analytics → Sources). -->
+
+<script>
+  /* Switch to the loading state before anything paints. Without JavaScript this
+     never runs, so the download button below is visible immediately rather than
+     a spinner that would never resolve. */
+  document.documentElement.setAttribute('data-state', 'loading');
+
+  /* Safety net: if main.js fails to load at all, never leave the visitor
+     staring at 「App Store を開いています…」 forever. */
+  window.setTimeout(function () {
+    var root = document.documentElement;
+    if (root.getAttribute('data-state') === 'loading') {
+      root.setAttribute('data-state', 'fallback');
+    }
+  }, 4000);
+</script>
+</head>
+
+<body>
+<main class="bridge">
+  <img class="mark" src="../assets/icon-256.png" width="88" height="88" alt="">
+  <p class="name">Loop<span>ショート動画で英語</span></p>
+
+  <!-- While the automatic redirect is being attempted. -->
+  <div class="state state--loading">
+    <p class="status" role="status">App&nbsp;Store を開いています…</p>
+    <div class="spinner" aria-hidden="true"><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- Only if the automatic redirect did not happen. -->
+  <div class="state state--fallback">
+    <!-- A real link: it works with JavaScript switched off. main.js appends the
+         `ct` campaign tag to this href on load — change the URL here only. -->
+    <a class="cta" id="ctaLink" data-appstore-link
+       href="https://apps.apple.com/jp/app/id6817213177">
+      <img src="../assets/appstore-badge.svg" width="163" height="60" alt="App Store からダウンロード">
+    </a>
+
+    <p class="hint">
+      開かないときは、右上の <strong class="dots">•••</strong> から
+      <strong>「ブラウザで開く」</strong>を選んでください
+    </p>
+
+    <div class="copy">
+      <label class="visually-hidden" for="linkField">App Store のリンク</label>
+      <div class="copy__row">
+        <input class="copy__field" id="linkField" type="text" readonly spellcheck="false"
+               value="https://apps.apple.com/jp/app/id6817213177">
+        <button class="copy__btn" id="copyBtn" type="button">コピー</button>
+      </div>
+      <p class="copy__status" id="copyStatus" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <!-- Instead of everything above, on Android. Loop is iPhone-only. -->
+  <div class="state state--android">
+    <p class="android-note">Loop は iPhone 専用のアプリです。<br>iPhone からこのページを開いてください。</p>
+  </div>
+
+  <a class="home" href="../">Loop について</a>
+</main>
+
+<script src="inapp-browser.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
