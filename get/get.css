@@ -18,18 +18,7 @@
   --ink-3: #8E8DA3;
   --line: #E4E2EF;
   --accent: #5B4BFF;
-  color-scheme: light dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0E0E14;
-    --card: #1A1A24;
-    --ink: #F5F5FA;
-    --ink-2: #B9B8CC;
-    --ink-3: #807F96;
-    --line: #2A2936;
-    --accent: #7C6FFF;
-  }
+  color-scheme: light;
 }
 
 *, *::before, *::after { box-sizing: border-box; }

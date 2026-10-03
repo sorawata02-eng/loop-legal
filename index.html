@@ -6,9 +6,8 @@
 <title>Loop — ショート動画で英語｜スクロールの時間を、英語の時間に。</title>
 <meta name="description" content="Loopは、ネイティブが本当に見ているショート動画で英語が身につくiPhoneアプリ。字幕の単語をタップすれば、その場面での意味がすぐわかる。保存した単語は、出会った動画の場面と一緒に復習できます。">
 <link rel="canonical" href="https://loop-eigo.pages.dev/">
-<meta name="theme-color" content="#F6F5FB" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0E0E14" media="(prefers-color-scheme: dark)">
-<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F6F5FB">
+<meta name="color-scheme" content="light">
 
 <!-- Safari on iOS: the native "App Store で見る" banner. -->
 <meta name="apple-itunes-app" content="app-id=6817213177">
@@ -27,7 +26,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preload" as="image" href="assets/demo-poster.webp">
+<link rel="preload" as="image" href="assets/shot-feed.webp">
 <link rel="stylesheet" href="assets/landing.css">
 <script>document.documentElement.classList.add('js')</script>
 
@@ -41,8 +40,7 @@
   "description": "ネイティブが見ているショート動画で英語が身につくiPhoneアプリ。",
   "url": "https://loop-eigo.pages.dev/",
   "downloadUrl": "https://apps.apple.com/jp/app/id6817213177",
-  "image": "https://loop-eigo.pages.dev/assets/icon-256.png",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+  "image": "https://loop-eigo.pages.dev/assets/icon-256.png"
 }
 </script>
 </head>
@@ -57,7 +55,7 @@
       <img src="assets/icon-256.png" width="36" height="36" alt="">
       <span>Loop</span>
     </a>
-    <a class="top__cta" href="get/?s=site-header">無料ではじめる</a>
+    <a class="top__cta" href="get/?s=site-header">はじめる</a>
   </div>
 </header>
 
@@ -80,19 +78,12 @@
           <a class="badge" href="get/?s=site-hero">
             <img src="assets/appstore-badge.svg" width="152" height="56" alt="App Store からダウンロード">
           </a>
-          <p class="get__note">無料ではじめられます<span class="pc" aria-hidden="true">・</span><br class="sp">iPhone専用（iOS 17以降）</p>
         </div>
       </div>
 
       <div class="hero__visual">
         <div class="glow" aria-hidden="true"></div>
-        <!-- The app in use: the founder's recording, rendered with a transparent
-             background (HEVC with alpha). Only WebKit plays that with its alpha, so
-             landing.js adds the video source there; everywhere else, and with Reduce
-             Motion, the still frame (the poster) stays. -->
-        <video class="demo" id="demo" muted loop playsinline preload="none"
-               poster="assets/demo-poster.webp" width="720" height="1080"
-               aria-label="Loopの画面：動画の字幕の単語をタップして、意味を保存するところ"></video>
+        <figure class="screen screen--hero"><img src="assets/shot-feed.webp" width="600" height="1128" alt="フィード：ショート動画と、単語ごとに光る英語字幕と日本語訳"></figure>
         <img class="hero__sloth" src="assets/mascot.webp" width="480" height="480" alt="">
       </div>
     </div>
@@ -121,7 +112,15 @@
           <h3 class="h3">見る</h3>
           <p>おすすめのショート動画を、いつものようにスクロール。英語の字幕と日本語訳つきで、いまどの単語を話しているかがひと目でわかります。</p>
         </div>
-        <figure class="screen"><img src="assets/shot-feed.webp" width="600" height="1128" loading="lazy" alt="フィード：ショート動画と、単語ごとに光る英語字幕と日本語訳"></figure>
+        <!-- The app in use: the founder's recording, rendered with a transparent
+             background (HEVC with alpha). Only WebKit plays that with its alpha, so
+             landing.js adds the video source there; everywhere else, and with Reduce
+             Motion, the still frame (the poster) stays. -->
+        <figure class="demo-wrap">
+          <video class="demo" id="demo" muted loop playsinline preload="none"
+                 poster="assets/demo-poster.webp" width="720" height="1080"
+                 aria-label="Loopの画面：動画の字幕の単語をタップして、意味を保存するところ"></video>
+        </figure>
       </article>
 
       <article class="step step--flip reveal">
@@ -223,29 +222,6 @@
     </div>
   </section>
 
-  <!-- ===================================================== Pricing -->
-  <section class="pricing" id="pricing">
-    <div class="wrap">
-      <h2 class="h2 center">料金</h2>
-      <p class="sub center"><span class="nb">無料ではじめて、</span><span class="nb">続けたくなったらプレミアムへ。</span></p>
-      <div class="plans">
-        <div class="plan plan--best reveal">
-          <p class="plan__tag">いちばんお得</p>
-          <h3>年額プラン</h3>
-          <p class="plan__price">¥2,980<span>／年</span></p>
-          <p class="plan__per">1か月あたり 約¥248</p>
-          <p class="plan__trial">1週間の無料トライアルつき</p>
-        </div>
-        <div class="plan reveal">
-          <h3>月額プラン</h3>
-          <p class="plan__price">¥490<span>／月</span></p>
-          <p class="plan__per">いつでも解約できます</p>
-        </div>
-      </div>
-      <p class="fine">プレミアムでは、動画も単語の意味も単語帳も、制限なく使えます。料金は税込です。解約はiPhoneの「設定」からいつでも可能で、無料トライアル中に解約すれば料金はかかりません。</p>
-    </div>
-  </section>
-
   <!-- ===================================================== FAQ -->
   <section class="faq" id="faq">
     <div class="wrap wrap--narrow">
@@ -259,20 +235,12 @@
         <p>はい。動画はLv1〜Lv5のレベルに分かれていて、日本語訳を表示したり、再生速度を落としたりできます。わからない単語はタップすれば、その場面での意味がわかります。</p>
       </details>
       <details>
-        <summary>無料で使えますか？</summary>
-        <p>無料ではじめられます。すべての機能を制限なく使うには、プレミアム（年額¥2,980・1週間の無料トライアルつき、または月額¥490）をご利用ください。</p>
-      </details>
-      <details>
         <summary>アカウント登録は必要ですか？</summary>
         <p>必要ありません。保存した単語や学習の記録は、お使いのiPhoneの中に保存されます。</p>
       </details>
       <details>
         <summary>Androidでも使えますか？</summary>
         <p>いまはiPhone専用です（iOS 17以降）。</p>
-      </details>
-      <details>
-        <summary>解約するには？</summary>
-        <p>iPhoneの「設定」→ Apple ID →「サブスクリプション」→「Loop」から解約できます。現在の期間が終わる24時間前までに解約すると、次回の更新はされません。</p>
       </details>
       <p class="faq__more">そのほかのご質問は <a href="support/">サポート</a> へ。</p>
     </div>
@@ -286,7 +254,6 @@
       <a class="badge" href="get/?s=site-footer">
         <img src="assets/appstore-badge.svg" width="152" height="56" alt="App Store からダウンロード">
       </a>
-      <p class="get__note">無料ではじめられます・iPhone専用</p>
     </div>
   </section>
 

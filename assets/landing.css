@@ -1,7 +1,7 @@
 /* Loop — landing page.
  * Phone first (most visitors come from Instagram / TikTok on an iPhone), then wider
  * layouts from 760px and 1040px. Colors are the app's (Design/Theme.swift): electric
- * indigo for the brand, lime for the word being said; light and dark follow the system.
+ * indigo for the brand, lime for the word being said. Light only (the founder, 2026-10-03).
  * No web fonts: the system's Hiragino on iPhone, and nothing to wait for in an in-app
  * browser. */
 
@@ -22,23 +22,7 @@
   --shadow: 0 24px 60px -24px rgba(48, 36, 140, .35), 0 8px 20px -12px rgba(21, 20, 31, .18);
   --radius: 22px;
   --gutter: 20px;
-  color-scheme: light dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0E0E14;
-    --bg-2: #15141E;
-    --card: #1A1A24;
-    --ink: #F5F5FA;
-    --ink-2: #BDBCD0;
-    --ink-3: #85849B;
-    --line: #2A2936;
-    --accent: #7C6FFF;
-    --accent-ink: #A99FFF;
-    --accent-soft: #2A2550;
-    --bezel: #2C2B38;
-    --shadow: 0 24px 60px -24px rgba(0, 0, 0, .7), 0 8px 20px -12px rgba(0, 0, 0, .5);
-  }
+  color-scheme: light;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -133,9 +117,11 @@ section { padding: 72px 0; }
   background: radial-gradient(closest-side, rgba(124, 111, 255, .45), rgba(124, 111, 255, 0));
   filter: blur(10px);
 }
-.demo { position: relative; width: 100%; height: auto; aspect-ratio: 2 / 3; }
+.screen--hero { position: relative; width: min(66vw, 300px); }
+.demo-wrap { margin: 0 auto; width: min(86vw, 400px); }
+.demo { width: 100%; height: auto; aspect-ratio: 2 / 3; }
 .hero__sloth {
-  position: absolute; left: -6%; bottom: 2%; width: 34%; height: auto;
+  position: absolute; left: -4%; bottom: -2%; width: 36%; height: auto;
   filter: drop-shadow(0 10px 18px rgba(48, 36, 140, .25));
   animation: bob 4.8s ease-in-out infinite;
 }
@@ -147,15 +133,12 @@ section { padding: 72px 0; }
   .hero__copy { text-align: left; }
   .lead { margin-left: 0; }
   .get { align-items: flex-start; }
-  .hero__visual { margin: 0 0 0 auto; width: 440px; }
+  .hero__visual { margin: 0 0 0 auto; width: 420px; }
 }
 
 /* ---------------------------------------------------------------- Subtitle ribbon */
 
 .ribbon { padding: 34px 0 30px; background: #0E0E14; color: #F5F5FA; text-align: center; }
-@media (prefers-color-scheme: dark) {
-  .ribbon { background: #17162A; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-}
 .karaoke {
   font-size: clamp(1.25rem, 5.6vw, 2.1rem); font-weight: 800; line-height: 1.7;
   letter-spacing: .01em; font-feature-settings: normal;
@@ -260,30 +243,6 @@ section { padding: 72px 0; }
   .features__in { grid-template-columns: 1fr 300px; gap: 64px; }
   .features .h2 { text-align: left; }
 }
-
-/* ---------------------------------------------------------------- Pricing */
-
-.plans { display: grid; gap: 16px; max-width: 640px; margin: 0 auto; }
-.plan {
-  position: relative; padding: 26px 22px 22px; border-radius: var(--radius);
-  background: var(--card); border: 1px solid var(--line); text-align: center;
-}
-.plan--best { border: 2px solid var(--accent); box-shadow: var(--shadow); }
-.plan__tag {
-  position: absolute; top: -13px; left: 50%; transform: translateX(-50%); margin: 0;
-  padding: 3px 14px; border-radius: 999px; background: var(--accent); color: #fff;
-  font-size: .78rem; font-weight: 800; letter-spacing: .06em; white-space: nowrap;
-}
-.plan h3 { margin: 0 0 6px; font-size: 1.05rem; font-weight: 800; }
-.plan__price { margin: 0; font-size: 2.3rem; font-weight: 900; line-height: 1.3; letter-spacing: .01em; }
-.plan__price span { font-size: 1rem; font-weight: 700; color: var(--ink-2); margin-left: 2px; }
-.plan__per { margin: 2px 0 0; color: var(--ink-3); font-size: .88rem; }
-.plan__trial {
-  display: inline-block; margin: 12px 0 0; padding: 5px 14px; border-radius: 999px;
-  background: var(--lime); color: var(--lime-ink); font-size: .85rem; font-weight: 800;
-}
-.fine { max-width: 640px; margin: 22px auto 0; color: var(--ink-3); font-size: .82rem; line-height: 1.8; text-align: center; }
-@media (min-width: 640px) { .plans { grid-template-columns: 1fr 1fr; align-items: stretch; } }
 
 /* ---------------------------------------------------------------- FAQ */
 
